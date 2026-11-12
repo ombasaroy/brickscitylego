@@ -1,39 +1,65 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <title>{% block title %} Bricks City {% endblock %}</title>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="" name="keywords" content="lego, lego kenya, nairobi lego, Bricks City Lego, Bricks Lego, Bricks City, City Lego">
-  <meta content="" name="description">
+    <meta charset="utf-8">
 
-  <!-- Favicons -->
-  <link href="{% static 'bricks/img/fav.jpg' %}" rel="icon">
-  <link href="{% static 'bricks/img/fav.jpg' %}" rel="apple-touch-icon">
-  <link rel="shortcut icon" href="{% static 'bricks/img/fav.jpg' %}" type="image/x-icon">
+    <!-- Page Title -->
+    <title>{% block title %}Bricks City{% endblock %}</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-  
-  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Bootstrap CSS File -->
-  <link href="{% static 'bricks/lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="lego, lego kenya, nairobi lego, Bricks City Lego, Bricks Lego, Bricks City, City Lego">
 
-  <!-- Libraries CSS Files -->
-  <link href="{% static 'bricks/lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
-  <link href="{% static 'bricks/lib/animate/animate.min.css' %}" rel="stylesheet">
-  <link href="{% static 'bricks/lib/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
-  <link href="{% static 'bricks/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <!-- Include Bootstrap CSS and JavaScript -->
-    <!-- Main Stylesheet File -->
-  <link href="{% static 'bricks/css/style.css' %}" rel="stylesheet">
-  <style>{% block style %}  {% endblock %}</style>
+    <meta name="description" content="{% block meta_description %}Bricks City Kenya offers creative LEGO activities, educational play and fun experiences for children and families.{% endblock %}">
 
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
+
+    <!-- Open Graph Tags (Facebook, WhatsApp, LinkedIn) -->
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+    <meta property="og:site_name" content="Bricks City">
+    <meta property="og:title" content="{% block og_title %}Bricks City{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Bricks City Kenya offers creative LEGO activities for children and families.{% endblock %}">
+    <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
+    <meta property="og:image" content="{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'bricks/img/fav.jpg' %}{% endblock %}">
+    <meta property="og:image:alt" content="{% block og_image_alt %}Bricks City{% endblock %}">
+
+    <!-- Twitter / X Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% block twitter_title %}Bricks City{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}Bricks City Kenya offers creative LEGO activities for children and families.{% endblock %}">
+    <meta name="twitter:image" content="{% block twitter_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'bricks/img/fav.jpg' %}{% endblock %}">
+
+    <!-- Favicons -->
+    <link href="{% static 'bricks/img/fav.jpg' %}" rel="icon">
+    <link href="{% static 'bricks/img/fav.jpg' %}" rel="apple-touch-icon">
+    <link rel="shortcut icon" href="{% static 'bricks/img/fav.jpg' %}" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="{% static 'bricks/lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Libraries CSS -->
+    <link href="{% static 'bricks/lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'bricks/lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'bricks/lib/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'bricks/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Main Stylesheet -->
+    <link href="{% static 'bricks/css/style.css' %}" rel="stylesheet">
+
+    <style>
+        {% block style %}{% endblock %}
+    </style>
 
 </head>
+
 
 <body>
   <!-- <div class="click-closed"></div> -->
