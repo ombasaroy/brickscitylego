@@ -1,0 +1,40 @@
+{% extends 'bricksadmin/base.html' %}
+{% load static %}
+{% block title %} Create Post {% endblock %}
+
+{% block content %}
+
+    <div class="container-xxl position-relative bg-white d-flex p-0">
+        <!-- Sign Up Start -->
+        <div class="container-fluid">
+            <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <form action="" method="post" enctype="multipart/form-data" class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
+                        {% csrf_token %}
+
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <h3>Create Post</h3>
+                        </div>
+                        {{ form.media }}
+                        {{ form.as_p }}
+                        {% for field in form %}
+                            {% if field.errors %}
+                                <div class="alert alert-danger">
+                                    {{ field.errors }}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Create Post</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Sign Up End -->
+    </div>
+
+
+
+
+
+{% endblock %}
+

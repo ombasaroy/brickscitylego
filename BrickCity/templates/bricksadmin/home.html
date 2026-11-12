@@ -1,0 +1,86 @@
+{% extends 'bricksadmin/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <b>{{ message}}</b>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+
+
+    {% include 'bricksadmin/stats.html' %}
+
+
+            <!-- My Blogs  Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-light text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0">My posts</h6>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table text-start align-middle table-bordered table-hover mb-0">
+                            <thead>
+                                <tr class="text-dark">
+                                    <th scope="col">Blog Title</th>
+                                    <th scope="col">Image</th>
+                                    <th scope="col">Snippet</th>
+                                    <th scope="col">Date Posted</th>
+                                    <th rowspan="3" style="text-align: center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            {% for post in posts %}
+                                <tr>
+                                    <td>{{ post.title}}</td>
+                                    <td>
+                                        <img src="{{ post.featured_image.url }}" width="50" alt="">
+                                    </td>
+                                    <td>{{ post.intro|slice:50 }}</td>
+                                    <td>{{ post.date_created }}</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-info" href="{% url 'single_blog' post.id %}" target="_blank">Read</a>
+                                        <a class="btn btn-sm btn-warning" href="{% url 'editpost' post.id %}">Edit</a>
+                                        <a class="btn btn-sm btn-danger" href="{% url 'deletepost' post.id %}">Delete</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- My Blog  End -->
+
+        <!-- Pagination starts here -->
+            <div class="row mt-3">
+                <div class="col-sm-12">
+                  <nav aria-label="pagination-a">
+                    <ul class="pagination justify-content-center">
+                      {% if posts.has_previous %}
+                        <li class="page-item" ><a class="page-link" href="?page=1" >&laquo First</a></li>
+                        <li class="page-item"><a class="page-link" href="?page={{ posts.previous_page_number }}">Previous</a></li>
+                      {% endif %}
+            
+                        <li class="page-item disabled"><a href="#" class="page-link">Page {{ posts.number }} of {{ posts.paginator.num_pages }}</a></li>
+            
+                      {% for i in nums %}
+                        <li class="page-item"><a class="page-link" href="?page={{ forloop.counter }}">{{ forloop.counter }}</a></li>
+                      {% endfor %}
+            
+                      {% if posts.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{ posts.next_page_number }}">Next</a></li>
+                        <li class="page-item"><a class="page-link" href="?page={{ posts.paginator.num_pages }}">Last &raquo</a></li>
+            
+                      {% endif %}
+            
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+
+{% endblock %}
+

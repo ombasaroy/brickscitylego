@@ -1,0 +1,88 @@
+{% extends 'bricks/base.html' %}
+{% load static %}
+{% block title %} News {% endblock %}
+
+{% block main %}
+  <!--/ Intro Single star /-->
+  <section class="intro-single" style="background-image: url('{% static "bricks/img/lego.jpg" %}')">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <div class="title-single-box">
+            <h1 class="title-single">Our Amazing Posts</h1>
+            <span class="color-text-a">Bricks City LEGO News</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ Intro Single End /-->
+
+
+    <!--/ News Grid Star /-->
+  <section class="news-grid grid" style="background-image: url('{% static "bricks/img/lego.jpg" %}')">
+    <div class="container">
+      <div class="row">
+
+        {% for post in posts %}
+        <div class="col-md-4" style="box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); margin-top: 10px;">
+          <div class="card-box-b card-shadow news-box" style="margin-bottom: 0">
+            <div class="img-box-b">
+              <img src="{{ post.featured_image.url }}" alt="" class="img-b img-fluid">
+            </div>
+            <div class="card-overlay">
+              <div class="card-header-b">
+
+
+              </div>
+            </div>
+          </div>
+            <div class="card-title-b">
+                  <h4 class="title-2" style="margin-top: 1rem">
+                    <a href="{% url 'single_blog' post.id %}" style="font-size: 1rem;">{{ post.title}}</a>
+                  </h4>
+                </div>
+            <div class="card-date">
+                <span class="date-b" style="font-size: 0.8rem; color: gray">Date: {{ post.date_created }}</span>
+            </div>
+        <div>
+            <p>{{ post.intro|slice:200 }}... <a href="{% url 'single_blog' post.slug %}" style="color: #ff9600;">read more</a></p>
+        </div>
+
+        </div>
+        {% endfor %}
+
+      </div>
+
+      <div class="row mt-5 mb-5">
+        <div class="col-sm-12">
+          <nav aria-label="pagination-a">
+            <ul class="pagination justify-content-center">
+              {% if posts.has_previous %}
+                <li class="page-item" ><a class="page-link" href="?page=1" >&laquo First</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ posts.previous_page_number }}">Previous</a></li>
+              {% endif %}
+    
+                <li class="page-item disabled"><a href="#" class="page-link">Page {{ posts.number }} of {{ posts.paginator.num_pages }}</a></li>
+    
+              {% for i in nums %}
+                <li class="page-item"><a class="page-link" href="?page={{ forloop.counter }}">{{ forloop.counter }}</a></li>
+              {% endfor %}
+    
+              {% if posts.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ posts.next_page_number }}">Next</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ posts.paginator.num_pages }}">Last &raquo</a></li>
+    
+              {% endif %}
+    
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      
+    </div>
+  </section>
+  <!--/ News Grid End /-->
+
+{% endblock %}

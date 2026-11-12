@@ -1,0 +1,131 @@
+{% extends 'bricks/base.html' %}
+{% load static %}
+
+
+{% block main %}
+    <!--/ Intro Single star /-->
+  <section class="intro-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <div class="title-single-box">
+            <h1 class="title-single">{{ post.title }}</h1>
+          </div>
+        </div>
+          <div class="col-md-12 col-lg-4">
+          <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="{% url 'blog' %}">Go Back</a>
+              </li>
+{#              <li class="breadcrumb-item active" aria-current="page">#}
+{#                <a href="{% url 'blog' %}">Go back</a>#}
+{#              </li>#}
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ Intro Single End /-->
+
+
+    <!--/ News Single Star /-->
+  <section class="news-single nav-arrow-b">
+    <div class="container">
+      <div class="row">
+        <div class="col col-sm-12 col-md-12 col-lg-12">
+          <div class="news-img-box">
+            <img src="{{ post.featured_image.url }}" alt="" width="100%" height="70%" class="img-fluid">
+          </div>
+        </div>
+        <div class="blog-combination">
+            <div class="col-9 post-left">
+                  <div class="post-information">
+                    <ul class="list-inline color-a">
+                      <li class="list-inline-item mr-2">
+                        <strong>Author: </strong>
+                        <span class="color-text-a">{{ post.author}}</span>
+                      </li>
+                      <li class="list-inline-item">
+                        <strong>Date: </strong>
+                          <span class="color-text-a">{{ post.date_created }} </span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="post-content color-text-a">
+                    <p class="post-intro">
+                      {{ post.intro }}
+                    </p>
+                    <p>
+                      {{ post.body|safe }}
+                    </p>
+
+
+                  </div>
+              </div>
+            <div class="col-3 recent-posts">
+                  <h4>Recent Posts</h4>
+                   {% for post in posts %}
+                    <div class="carousel-item-c" style="box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); ">
+                      <div class="card-box-b card-shadow news-box">
+                        <div class="img-box-b">
+                          <img src="{{ post.featured_image.url }}" alt="" class="img-b img-fluid">
+                        </div>
+                        <div class="card-overlay">
+                          <div class="card-header-b">
+
+                            <div class="card-date">
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                        <div class="card-title-b">
+                            <h6 class="title-2" style="margin-top: 1rem">
+                                <a href="{% url 'single_blog' post.id %}" style="font-size: 1rem;">{{ post.title}}</a>
+                            </h6>
+                        </div>
+                        </div>
+                      {% endfor %}
+              </div>
+        </div>  
+              
+          
+      </div>
+    </div>
+  </section>
+  <!--/ News Single End /-->
+
+    <div class="container recent-posts-lower">
+        <h5 style="">Recent Posts</h5>
+        <div id="new-carousel" class="owl-carousel owl-theme">
+
+              {% for post in posts %}
+            <div class="carousel-item-c" style="box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); ">
+              <div class="card-box-b card-shadow news-box">
+                <div class="img-box-b">
+                  <img src="{{ post.featured_image.url }}" alt="" class="img-b img-fluid" width="100" height="100">
+                </div>
+                <div class="card-overlay">
+                  <div class="card-header-b">
+
+                    <div class="card-date">
+    {#                  <span class="date-b">{{ post.date_created }}</span>#}
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+                <div class="card-title-b">
+                    <h6 class="title-2" style="margin: 1rem; font-size: 14px; padding: 0 1rem">
+                        <a href="{% url 'single_blog' post.id %}" style="font-size: 1rem;">{{ post.title}}</a>
+                    </h6>
+                </div>
+                </div>
+              {% endfor %}
+
+        </div>
+    </div>
+
+{% endblock %}

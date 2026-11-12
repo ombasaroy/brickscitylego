@@ -1,0 +1,336 @@
+{% extends 'bricks/base.html' %}
+{% load static %}
+
+{% block main %}
+
+{#    {% if myadverts %}#}
+{##}
+{#    <div class="modal fade" id="advertisementModal" tabindex="-1" role="dialog" aria-labelledby="advertisementModalLabel" aria-hidden="true">#}
+{#      <div class="modal-dialog modal-dialog-centered" role="document">#}
+{#          {% for ad in myadverts %}#}
+{#        <div class="modal-content">#}
+{#          <div class="">#}
+{#            <button type="button" class="close" data-dismiss="modal" aria-label="Close">#}
+{#              <span aria-hidden="true">&times;</span>#}
+{#            </button>#}
+{#          </div>#}
+{#          <div class="modal-body">#}
+{#              <img src="{{ ad.image.url }}" alt="" class="img-fluid">#}
+{#          </div>#}
+{#        </div>#}
+{#          {% endfor %}#}
+{#      </div>#}
+{#    </div>#}
+{#    #}
+{#    {% else %}#}
+{#    #}
+{#    {% endif %}#}
+
+
+
+     <!--/ Carousel Star /-->
+  <div class="intro intro-carousel">
+    <div id="carousel" class="owl-carousel owl-theme">
+      <div class="carousel-item-a intro-item bg-image" style="background-image: url({% static 'bricks/img/slide-2.jpg' %})">
+        <div class="overlay overlay-a"></div>
+        <div class="intro-content display-table">
+          <div class="table-cell">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-8">
+                  <div class="intro-body">
+                    <p class="intro-title-top">Welcome to
+                      <br> Bricks City LEGO</p>
+                    <h1 class="intro-title mb-4">Where <span class="color-b"> Creativity </span>
+                        <br>Meets <span class="color-b"> Fun!</span> </h1>
+                    <p class="intro-subtitle intro-price">
+                      <a href="{% url 'services' %}"><span class="price-a">View Play Sessions</span></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item-a intro-item bg-image" style="background-image: url({% static 'bricks/img/slide-1.jpg' %})">
+        <div class="overlay overlay-a"></div>
+        <div class="intro-content display-table">
+          <div class="table-cell">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-8">
+                  <div class="intro-body">
+                    <p class="intro-title-top">Popular Play
+                      <br> Session</p>
+                    <h1 class="intro-title mb-4">
+                      <span class="color-b">Family </span> Play
+                      <br> Session</h1>
+                    <p class="intro-subtitle intro-price">
+                      <a href="#section-property"><span class="price-a">View packages</span></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item-a intro-item bg-image" style="background-image: url({% static 'bricks/img/slide-3.jpg' %})">
+        <div class="overlay overlay-a"></div>
+        <div class="intro-content display-table">
+          <div class="table-cell">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-8">
+                  <div class="intro-body">
+                    <p class="intro-title-top">How To
+                      <br> Work With Us</p>
+                    <h1 class="intro-title mb-4">
+                      <span class="">Partner </span> With
+                      <br> <span class="color-b">Bricks City Lego </span> </h1>
+                    <p class="intro-subtitle intro-price">
+                      <a href="{% url 'partnerships' %}"><span class="price-a">Read More</span></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/ Carousel end /-->
+
+  <!--/ Services Star /-->
+  <section class="section-services section-t8" style="background-image: url('{% static "bricks/img/lego.jpg" %}');">
+    <div class="container">
+      <div class="container row">
+        <div class="col">
+          <div class="card-box-c foo">
+            <div class="card-header-c d-flex">
+
+              <div class="card-title-c align-self-center">
+{#                <h2 class="title-c">Welcome to Bricks City LEGO – Where Creativity Meets Fun!</h2>#}
+              </div>
+            </div>
+            <div class="card-body-c">
+                <h1 class="">Who we are</h1>
+                <hr>
+              <p class="content-c">
+                At Bricks City LEGO, we're more than just a LEGO play center – we're a hub of creativity, imagination,
+                  and endless fun! Step into our colorful world where bricks come to life and every creation is a
+                  masterpiece waiting to be built. Whether you're a seasoned LEGO enthusiast or just discovering the
+                  magic of building, there's something for everyone at Bricks City LEGO. From exciting play zones to
+                  immersive workshops and thrilling events, our center is designed to spark imagination and bring
+                  families together for unforgettable experiences. Come join us and unleash your creativity – one
+                  brick at a time!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ Services End /-->
+
+  <!--/ Property Star /-->
+  <section class="section-property section-t8" id="section-property" style="background-image: url('{% static "bricks/img/lego.jpg" %}'); background-repeat: repeat">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="title-wrap d-flex justify-content-between">
+            <div class="title-box">
+              <h3 class="title-a">Our LEGO Packages</h3>
+            </div>
+{#            <div class="title-link">#}
+{#              <a href="property-grid.html">All Property#}
+{#                <span class="ion-ios-arrow-forward"></span>#}
+{#              </a>#}
+{#            </div>#}
+          </div>
+        </div>
+      </div>
+      <div id="property-carousel" class="owl-carousel owl-theme">
+        <div class="carousel-item-b">
+          <div class="card-box-a card-shadow">
+            <div class="img-box-a">
+              <img src="{% static 'bricks/img/pack1.jpg' %}" alt="" class="img-a img-fluid">
+            </div>
+            <div class="card-overlay">
+              <div class="card-overlay-a-content">
+                <div class="card-header-a">
+                  <h2 class="card-title-a" style="font-size: 22px;">
+                      Hourly
+                  </h2>
+                </div>
+                <div class="card-body-a">
+                  <div class="price-box d-flex">
+                    <span class="price-a">KSH | 600 per person</span>
+                  </div>
+                </div>
+                <div class="card-footer-a">
+                  <ul class="card-info d-flex justify-content-around">
+
+                    <li>
+                      <h4 class="card-info-title">30 extra minutes included</h4>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item-b">
+          <div class="card-box-a card-shadow">
+            <div class="img-box-a">
+              <img src="{% static 'bricks/img/pack2.jpg' %}" alt="" class="img-a img-fluid">
+            </div>
+            <div class="card-overlay">
+              <div class="card-overlay-a-content">
+                <div class="card-header-a">
+                  <h2 class="card-title-a" style="font-size: 22px;">
+                      2 Hours, 15 mins
+                  </h2>
+                </div>
+                <div class="card-body-a">
+                  <div class="price-box d-flex">
+                    <span class="price-a">KSH | 1,200 per person</span>
+                  </div>
+                </div>
+                <div class="card-footer-a">
+                  <ul class="card-info d-flex justify-content-around">
+
+                    <li>
+                      <h4 class="card-info-title">30 extra minutes included</h4>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item-b">
+          <div class="card-box-a card-shadow">
+            <div class="img-box-a">
+              <img src="{% static 'bricks/img/pack3.jpg' %}" alt="" class="img-a img-fluid">
+            </div>
+            <div class="card-overlay">
+              <div class="card-overlay-a-content">
+                <div class="card-header-a">
+                  <h2 class="card-title-a" style="font-size: 22px;">
+                      Monthly, (11 Hours/month)
+                  </h2>
+                </div>
+                <div class="card-body-a">
+                  <div class="price-box d-flex">
+                    <span class="price-a">KSH | 5,000 per person</span>
+                  </div>
+                </div>
+                <div class="card-footer-a">
+                  <ul class="card-info d-flex justify-content-around">
+
+                    <li>
+                      <h4 class="card-info-title">30 extra minutes per session</h4>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item-b">
+          <div class="card-box-a card-shadow">
+            <div class="img-box-a">
+              <img src="{% static 'bricks/img/pack4.jpg' %}" alt="" class="img-a img-fluid">
+            </div>
+            <div class="card-overlay">
+              <div class="card-overlay-a-content">
+                <div class="card-header-a">
+                  <h2 class="card-title-a" style="font-size: 22px;">
+                      Custom Packages
+                  </h2>
+                </div>
+                <div class="card-body-a">
+                  <div class="price-box d-flex">
+                    <span class="price-a">KSH | Negotiable</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+  <!--/ Property End /-->
+
+
+  <!--/ News Star /-->
+  <section class="section-news section-t8" style="background-image: url('{% static "bricks/img/lego.jpg" %}'); background-repeat: repeat">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="title-wrap d-flex justify-content-between">
+            <div class="title-box">
+              <h2 class="title-a">Latest News</h2>
+            </div>
+            <div class="title-link">
+              <a href="{% url 'blog' %}">All News
+                <span class="ion-ios-arrow-forward"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="new-carousel" class="owl-carousel owl-theme">
+
+          {% for post in posts %}
+        <div class="carousel-item-c" style="box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); ">
+          <div class="card-box-b card-shadow news-box">
+            <div class="img-box-b">
+              <img src="{{ post.featured_image.url }}" alt="" class="img-b img-fluid" width="100" height="100">
+            </div>
+            <div class="card-overlay">
+              <div class="card-header-b">
+
+                <div class="card-date">
+{#                  <span class="date-b">{{ post.date_created }}</span>#}
+                </div>
+              </div>
+            </div>
+
+          </div>
+            <div class="card-title-b">
+                <h5 class="title-2" style="margin-top: 1rem">
+                    <a href="{% url 'single_blog' post.id %}" style="font-size: 1rem;">{{ post.title}}</a>
+                </h5>
+            </div>
+            <div>
+                <p>{{ post.intro|slice:200 }}... <a href="{% url 'single_blog' post.id %}" style="color: #ff9600;">read more</a></p>
+            </div>
+            </div>
+          {% endfor %}
+
+      </div>
+    </div>
+  </section >
+  <!--/ News End /-->
+
+
+{#    Partnerships#}
+  <div class="container-fluid partnerships" style="background-image: url('{% static 'bricks/img/partner.jpg' %}'); height: 100vh; background-repeat: no-repeat; background-size: cover;">
+    <div class="container partner">
+        <h2>Join Forces with Bricks City LEGO and Let Us Build Something Amazing Together!</h2>
+        <p class="intro-subtitle intro-price">
+            <a href="{% url 'partnerships' %}"><span class="price-a">Partner With Us</span></a>
+        </p>
+    </div>
+  </div>
+
+{#    Ends Partnerships#}
+{% endblock %}

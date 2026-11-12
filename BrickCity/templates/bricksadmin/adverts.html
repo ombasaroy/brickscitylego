@@ -1,0 +1,57 @@
+{% extends 'bricksadmin/base.html' %}
+{% load static %}
+{% block title %} Adverts {% endblock %}
+
+{% block content %}
+
+    {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <b>{{ message}}</b>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+
+    {% include 'bricksadmin/stats.html' %}
+
+            <!-- My Blogs  Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-light text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0">My Adverts</h6>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table text-start align-middle table-bordered table-hover mb-0">
+                            <thead>
+                                <tr class="text-dark">
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Message</th>
+                                    <th scope="col">Image</th>
+                                    <th scope="col">Date Posted</th>
+                                    <th scope="col" style="text-align: center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            {% for ad in adverts %}
+                                <tr>
+                                    <td>{{ ad.title }}</td>
+                                    <td>{{ ad.message }}</td>
+                                    <td>
+                                        <img src="{{ ad.image.url }}" class="img-fluid" alt="">
+                                    </td>
+                                    <td>{{ ad.date_created }}</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-warning" href="{% url 'editadvert' ad.id %}">Edit</a>
+                                        <a class="btn btn-sm btn-danger" href="{% url 'deleteadvert' ad.id %}">Delete</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- My Blog  End -->
+
+{% endblock %}
+
