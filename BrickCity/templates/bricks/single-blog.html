@@ -180,7 +180,7 @@
                             <h6 class="title-2"
                                 style="margin-top: 1rem">
 
-                                <a href="{% url 'single_blog' post.id %}"
+                                <a href="{% url 'single_blog' post.url %}"
                                    style="font-size: 1rem;">
                                     {{ post.title }}
                                 </a>
@@ -250,7 +250,7 @@
                 <h6 class="title-2"
                     style="margin: 1rem; font-size: 14px; padding: 0 1rem">
 
-                    <a href="{% url 'single_blog' post.id %}"
+                    <a href="{% url 'single_blog' post.slug %}"
                        style="font-size: 1rem;">
                         {{ post.title }}
                     </a>
